@@ -1,9 +1,11 @@
 const userInput = document.querySelector(".user-input");
 const passInput = document.querySelector(".pass-input");
+
 const button = document.querySelector(".signin-button");
+
 const userAlert = document.querySelector(".username-msg");
 const passAlert = document.querySelector(".password-msg");
-const signAlert = document.querySelector(".signin-status");
+const signInAlert = document.querySelector(".signin-status");
 
 button.addEventListener("click", function(e) {
 
@@ -20,7 +22,7 @@ button.addEventListener("click", function(e) {
         passAlert.style.color = "#00db49";
     };
 
-    if(userAlert.innerText.length === 5 && passAlert.innerText.length === 5) {
+    if (userAlert.innerText.length === 5 && passAlert.innerText.length === 5) {
         fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
             body: JSON.stringify({
@@ -34,10 +36,10 @@ button.addEventListener("click", function(e) {
         })
             .then((response) => response.json())
             .then((json) => {
-                signAlert.innerText = "You signed in succsessfully!";
+                signInAlert.innerText = "You signed in succsessfully!";
                 console.log(json);
             });
     } else {
-        signAlert.innerText = "";
+        signInAlert.innerText = "";
     };
 }); 
